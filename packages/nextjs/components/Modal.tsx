@@ -3,6 +3,7 @@ import React from "react";
 interface IImageData {
   name: string;
   description: string;
+  src: string;
 }
 
 interface ModalProps {
@@ -35,20 +36,24 @@ const Modal = ({ isOpen, closeModal, imageData }: ModalProps) => {
             color: "black",
             borderRadius: "9px",
             backgroundColor: "#d2d2d2",
-            padding: "20px",
             transition: "transform 0.3s ease-in-out",
             transform: isOpen ? "translate(-50%, -50%)" : "translate(-50%, -60%)",
           }}
         >
           {imageData ? (
-            <div>
-              <h2>{imageData.name}</h2>
-              <p>{imageData.description}</p>
+            <div style={{
+              width: "100%",
+              height: "100%",
+            padding: "20px",
+            backgroundImage: `url(${imageData.src}), linear-gradient(#0004, #0009);`
+            }}>
+              <h2 style={{fontSize:"1.35rem", fontWeight:"700",}}>{imageData.name}</h2>
+              <p style={{ opacity:"0.8", textAlign:"justify", fontFamily:"monospace", fontSize:"1rem", lineHeight:"1.85rem", letterSpacing: "2px", height:"50vh", overflowY:"scroll"}}>{imageData.description}</p>
             </div>
           ) : (
             <p>Loading...</p>
           )}
-          <button onClick={closeModal}>Close</button>
+          <button style={{position: "absolute", top: "-40px", right: "0px", color: "#df3454", width:30, height: 30, border:"1px solid #df3454", borderRadius:"300px"}} onClick={closeModal}>X</button>
         </div>
       </div>
     </div>

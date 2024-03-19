@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./Modal";
 
 const ImageGallery = ({ images }: any) => {
@@ -11,6 +11,11 @@ const ImageGallery = ({ images }: any) => {
 
   const filteredImages = images.filter((image: any) => (image));
 
+  useEffect(()=> {
+    console.log("print...")
+    console.log(selectedImage)
+  }, [selectedImage])
+
   return (
     <>
       <div className="images">
@@ -21,7 +26,7 @@ const ImageGallery = ({ images }: any) => {
             alt={`Image ${index + 1}`}
             style={{ width: "33%", cursor: "pointer" }}
             className="image"
-            onClick={() => handleImageClick(image.src)}
+            onClick={() => handleImageClick(image)}
           />
         ))}
 
