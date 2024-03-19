@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 const ImageGallery = ({ images }: any) => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
 
   const handleImageClick = (image: any) => {
     setSelectedImage(image);
