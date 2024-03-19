@@ -44,11 +44,11 @@ const Modal = ({ isOpen, closeModal, imageData }: ModalProps) => {
             <div style={{
               width: "100%",
               height: "100%",
-            padding: "20px",
-            backgroundImage: `url(${imageData.src}), linear-gradient(#0004, #0009);`
+              padding: "20px",
+              backgroundImage: `url(${imageData.src}), linear-gradient(#0004, #0009);`
             }}>
               <h2 style={{fontSize:"1.35rem", fontWeight:"700",}}>{imageData.name}</h2>
-              <p style={{ opacity:"0.8", textAlign:"justify", fontFamily:"monospace", fontSize:"1rem", lineHeight:"1.85rem", letterSpacing: "2px", height:"50vh", overflowY:"scroll"}}>{imageData.description}</p>
+              <p style={{ opacity:"0.8", textAlign:"justify", fontFamily:"monospace", fontSize:"1rem", lineHeight:"1.85rem", letterSpacing: "2px", maxHeight:"50vh", overflowY:"scroll"}}>{imageData.description}</p>
             </div>
           ) : (
             <p>Loading...</p>
